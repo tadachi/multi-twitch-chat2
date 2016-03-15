@@ -7,10 +7,23 @@
     <link href='https://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
 
     <style>
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+        }
+        .flex-item {
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
     </style>
 </head>
 
 <body>
+    <div class="flex-container">
+        <div class="item-item"></div>
+    </div>
+
     <!-- put webpack bundle in bottom to avoid
         Invariant Violation: _registerComponent(…): Target container is not a DOM element -->
     <script src="js/bundle.js"></script>
