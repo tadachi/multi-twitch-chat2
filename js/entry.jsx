@@ -1,12 +1,16 @@
 import React, { Component, PropTypes } from 'react'
 import ReactDOM from 'react-dom'
 
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux' // Allow async using middleware from thunk.
+
+import thunk from 'redux-thunk';
 import Search from './components/Search.jsx'
 import { reducer } from './reducers/reducers.jsx'
 
 const rootElement = document.getElementById('root')
-let store = createStore(reducer)
+
+//let store = createStore(reducer); // Previously
+let store = applyMiddleware(thunk)(createStore)(reducer) // Async thunk middle ware applied.
 
 function render() {
     ReactDOM.render(

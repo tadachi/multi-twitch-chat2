@@ -1,14 +1,19 @@
 import React, { Component, PropTypes } from 'react'
-import {addSearched} from '../actions/actions.jsx'
+import {addSearched, getSRL} from '../actions/actions.jsx'
 
 export class Search extends Component {
     constructor(props) {
         super(props)
         this.search = this.search.bind(this);
+        this.getSRL = this.getSRL.bind(this);
     }
 
     search() {
         this.props.store.dispatch(addSearched(this.refs.searchInput.value));
+    }
+    
+    getSRL() {
+        this.props.store.dispatch(getSRL());
     }
     
     render() {
@@ -27,6 +32,7 @@ export class Search extends Component {
                     placeholder='Search..'
                 />
             <button onClick={this.search}>Search</button>
+            <button onClick={this.getSRL}>getSRL</button>
             </div>
         )
     }
