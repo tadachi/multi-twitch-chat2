@@ -1,20 +1,22 @@
 import React, { Component, PropTypes } from 'react'
-import {addSearched, getSRL} from '../actions/actions.jsx'
+import {addSearched, getSRL, searchStream} from '../actions/actions.jsx'
 
 export class Search extends Component {
     constructor(props) {
         super(props)
-        this.search = this.search.bind(this);
+        this.searchStream = this.searchStream.bind(this);
         this.getSRL = this.getSRL.bind(this);
     }
 
-    search() {
-        this.props.store.dispatch(addSearched(this.refs.searchInput.value));
+    searchStream() {
+        let query = this.refs.searchInput.value
+        this.props.store.dispatch(searchStream(query))
     }
     
     getSRL() {
         this.props.store.dispatch(getSRL());
     }
+   
     
     render() {
         var styles = {
@@ -31,7 +33,7 @@ export class Search extends Component {
                     ref='searchInput'
                     placeholder='Search..'
                 />
-            <button onClick={this.search}>Search</button>
+            <button onClick={this.searchStream}>Search</button>
             <button onClick={this.getSRL}>getSRL</button>
             </div>
         )
