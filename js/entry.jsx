@@ -2,9 +2,10 @@ import React, { Component, PropTypes } from 'react'
 import ReactDOM from 'react-dom'
 
 import { createStore, applyMiddleware } from 'redux' // Allow async using middleware from thunk.
+import { Provider } from 'react-redux'
 
 import thunk from 'redux-thunk';
-import Search from './components/Search.jsx'
+import App from './components/App.jsx'
 import { reducer } from './reducers/reducers.jsx'
 
 const rootElement = document.getElementById('root')
@@ -14,9 +15,10 @@ let store = applyMiddleware(thunk)(createStore)(reducer) // Async thunk middle w
 
 function render() {
     ReactDOM.render(
-        <Search 
-            store={store}
-        />,
+        <Provider store={store}>
+            <App />
+        </Provider>,
+        
         rootElement
     )
 }

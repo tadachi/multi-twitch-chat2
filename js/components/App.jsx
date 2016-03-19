@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import {addSearched, getSRL, searchStream} from '../actions/actions.jsx'
 
-export class Search extends Component {
+export class App extends Component {
     constructor(props) {
         super(props)
         this.searchStream = this.searchStream.bind(this);
@@ -40,4 +40,4 @@ export class Search extends Component {
     }
 }
 
-export default Search
+export default App
