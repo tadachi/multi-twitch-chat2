@@ -22,3 +22,4 @@ export function reducer(state = {searched: [], srl: '', results: ''}, action) {
             return state
     }
 }
+

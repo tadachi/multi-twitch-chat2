@@ -1,40 +1,17 @@
 import React, { Component, PropTypes } from 'react'
-import {addSearched, getSRL, searchStream} from '../actions/actions.jsx'
+import * as Actions from '../actions/actions.jsx'
+import Search from './Search.jsx'
 
-export class App extends Component {
+class App extends Component {
     constructor(props) {
         super(props)
-        this.searchStream = this.searchStream.bind(this);
-        this.getSRL = this.getSRL.bind(this);
     }
 
-    searchStream() {
-        let query = this.refs.searchInput.value
-        this.props.store.dispatch(searchStream(query))
-    }
-    
-    getSRL() {
-        this.props.store.dispatch(getSRL());
-    }
-   
-    
     render() {
-        var styles = {
-            input: {
-                width: '200px',
-            },
-        }
-
         return (
+            // <div> test</div>
             <div>
-                <input
-                    style={styles.input}
-                    type="text"
-                    ref='searchInput'
-                    placeholder='Search..'
-                />
-            <button onClick={this.searchStream}>Search</button>
-            <button onClick={this.getSRL}>getSRL</button>
+                <Search store={this.props.store} Actions={Actions} />
             </div>
         )
     }
